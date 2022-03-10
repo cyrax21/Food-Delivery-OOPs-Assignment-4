@@ -128,6 +128,11 @@ class DeliverProduct{
             cout<<mapEmp[id]->makePayment(pay)<<"\n"<<endl;
         }
     }
+    
+    // get the data of employees
+    map<int, Executive*> getEmployees() {
+        return mapEmp;
+    }
 };
 
 int main() {
@@ -160,11 +165,16 @@ int main() {
             default:
                 cout<<"Invalid Input ! Try Again"<<endl;
         }
+        
+        // print the update of every employee after each operation
+        map<int, Executive*> allEmp = dp->getEmployees();
+        cout<<"---------Current Update------------\n";
+        for(auto executive: allEmp){
+            cout<<"\nExecutive "<<executive.first<<" has "<<executive.second->getTasks()<<" tasks"<<endl;
+        }
+        cout<<"\n-----------------------------------\n";
         if(input==5){
             return 0;
         }
     }
 }
-
-
-
